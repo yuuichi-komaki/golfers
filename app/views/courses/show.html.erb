@@ -1,1 +1,44 @@
 <h1>コース詳細</h1>
+
+<table>
+ <tr>
+   <td>コース名</td>
+   <td><%= @course.name %></td>
+ </tr>
+</table>
+
+<h2>レビュー一覧</h2>
+ <table>
+   <thead>
+     <tr>
+       <th>投稿日</th>
+       <th>投稿者</th>
+       <th>タイトル</th>
+       <th>レビュー内容</th>
+     </tr>
+   </thead>
+   <% @posts.each do |post| %>
+   <tbody>
+     <tr>
+       <td><%= post.created_at.strftime("%Y/%m/%d") %></td>
+       <td><%= post.user.name %></td>
+       <td><%= post.title %></td>
+       <td><%= post.body %></td>
+     </tr>
+   </tbody>
+ </table>
+  <% end %>
+
+<h3>このコースのレビューを投稿する</h3>
+<div>
+ <%= form_with model: @post, local:true do |f| %>
+
+ <%= f.attachment_field :post_images_images, multiple: true %>
+ <%= f.text_field :title %>
+ <%= f.text_area :body %>
+ <%= f.hidden_field :course_id, value: @course.id %>
+ <%= f.hidden_field :user_id, value: current_user.id %>
+ <%= f.submit '投稿' %>
+
+ <% end %>
+</div>

@@ -16,6 +16,10 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    # 暫定で以下
+    @posts = @course.posts.page(params[:page]).reverse_order 
+    # @posts = Post.where(course_id: :@course).order(created_at: :desc).page(params[:page])
+    @post = Post.new
   end
 
   def destroy
@@ -25,6 +29,6 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:name, :postcode, :prefecture_code, :address_city, :address_street,)
+    params.require(:course).permit(:name, :postcode, :prefecture_code, :address_city, :address_street)
   end
 end
