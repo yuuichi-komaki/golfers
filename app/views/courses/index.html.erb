@@ -1,0 +1,29 @@
+<h1>コース一覧</h1>
+
+ <table>
+   <theade>
+     <tr>
+       <th>コース名</th>
+       <th>コース住所</th>
+       <th></th>
+     </tr>
+   </theade>
+   <% @courses.each do |course| %>
+   <tbody>
+     <tr>
+       <td><%= course.name %></td>
+       <td>〒<%= course.postcode %><br>
+       　<%= course.prefecture_name %><%= course.address_city %><%= course.address_street %>
+       </td>
+       <td>
+         <%= link_to "コース詳細", course_path(course.id) %>
+       </td>
+     </tr>
+   </tbody>
+ </table>
+
+
+
+
+
+<% end %>

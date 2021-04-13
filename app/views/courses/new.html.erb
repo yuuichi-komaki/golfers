@@ -1,0 +1,29 @@
+<h1>コース投稿</h1>
+<%= form_with model: @course, local:true do |f| %>
+ <table>
+   <tr>
+     <td>コース名</td>
+     <td><%= f.text_field :name, autocomplete: 'name' %></td>
+   </tr>
+   <tr>
+     <td><%= f.label :postcode, '郵便番号' %></td>
+     <td><%= f.text_field :postcode, autocomplete: 'postcode' %></td>
+   </tr>
+   <tr>
+     <td><%= f.label :prefecture_name, '都道府県' %></td>
+     <td><%= f.collection_select( :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, include_blank: '都道府県') %></td>
+   </tr>
+   <tr>
+     <td><%= f.label :address_city, '市区町村' %></td>
+     <td><%= f.text_field :address_city, autocomplete: 'address_city' %></td>
+   </tr>
+   <tr>
+     <td><%= f.label :address_street, '番地' %></td>
+     <td><%= f.text_field :address_street, autocomplete: 'address_street' %></td>
+   </tr>
+   <tr>
+     <td><%= f.submit "コースを登録する" %></td>
+   </tr>
+ </table>
+
+<% end %>
