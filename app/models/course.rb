@@ -10,6 +10,13 @@ class Course < ApplicationRecord
   self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
  end
  
+ def address
+   [self.prefecture_name,self.address_city,self.address_street].compact.join()
+ end 
+ 
+ geocoded_by :address
+ after_validation :geocode
+ 
  has_many :posts, dependent: :destroy
  
 end

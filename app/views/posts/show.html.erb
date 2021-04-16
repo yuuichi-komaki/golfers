@@ -1,17 +1,64 @@
 <h1>投稿詳細</h1>
 
-<table>
+<table class="table">
+  <tr>
+    <th>投稿日</th>
+    <td><%= @post.created_at.strftime("%Y/%m/%d") %></td>
+  </tr>
   <tr>
     <th>ユーザー名</th>
     <td><%= @post.user.name %></td>
   </tr>
   <tr>
-    <% if @post.post_images.present? %>
+    <th>タイトル</th>
+    <td><%= @post.title %></td>
+  </tr>
+  <tr>
+    <th>投稿画像</th>
+    <td><% if @post.post_images.present? %>
      <% @post.post_images.each do |image| %>
-      <%= attachment_image_tag image, :image, class: "default_image" %>
-    <% end %>
-    <% else %>
-     投稿された画像はありません
-  　<% end %>
+      <%= attachment_image_tag image, :image, :fill, 250, 200, class: "default_image" %>
+     <% end %>
+     <% else %>
+      投稿された画像はありません
+  　  <% end %>
+  　</td>
+  </tr>
+  <tr>
+    <th>内容</th>
+    <td><%= @post.body %></td>
   </tr>
 </table>
+
+<div id="favorite-btn-<%= @post.id %>">
+   <%= render 'favorites/favorite', post: @post %>
+</div>
+
+<h5>コメント一覧(<%= @comments.count %>)</h5>
+<table class="table">
+  <thead>
+   <tr>
+     <th>コメント日</th>
+     <th>ユーザー名</th>
+     <th>内容</th>
+   </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+    <tr>
+    　<td><%= comment.created_at.strftime("%Y/%m/%d") %> </td>
+      <td><%= comment.user.name %></td>
+      <td><%= comment.content %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= form_with(model:[@post, @comment], method: :post) do |f| %>
+  <%= f.text_area :content %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.submit 'コメントする' %>
+<% end %>
+
+
+
