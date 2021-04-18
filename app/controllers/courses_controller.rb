@@ -20,10 +20,11 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    gon.course = @course 
     # 暫定で以下
     @posts = @course.posts.page(params[:page]).reverse_order
     # @posts = Post.where(course_id: :@course).order(created_at: :desc).page(params[:page])
-    @post = Post.new
+    @post_new = Post.new
   end
 
   def destroy

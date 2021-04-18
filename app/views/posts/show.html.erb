@@ -14,6 +14,10 @@
     <td><%= @post.title %></td>
   </tr>
   <tr>
+    <th>評価（オススメ度）</th>
+    <td><%= @post.score %>/5.0<div id="star-rate-<%= @post.id %>"></div></td>
+  </tr>
+  <tr>
     <th>投稿画像</th>
     <td><% if @post.post_images.present? %>
      <% @post.post_images.each do |image| %>
@@ -29,6 +33,9 @@
     <td><%= @post.body %></td>
   </tr>
 </table>
+
+<!--星での表示-->
+  <%= render 'layouts/star', post: @post %>
 
 <div id="favorite-btn-<%= @post.id %>">
    <%= render 'favorites/favorite', post: @post %>
