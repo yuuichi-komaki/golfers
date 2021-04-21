@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_04_17_120027) do
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "score"
+    t.float "rate", default: 0.0
     t.index ["course_id"], name: "index_posts_on_course_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

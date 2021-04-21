@@ -67,6 +67,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'jp_prefecture'
 gem 'kaminari', '~> 1.2.1'
+gem 'bootstrap4-kaminari-views'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'bootstrap', '~> 4.5'

@@ -1,0 +1,38 @@
+
+<table class="table">
+   <thead>
+     <tr>
+       <th>コース名</th>
+       <th>コース住所</th>
+       <th>レビュー</th>
+       <th></th>
+     </tr>
+   </thead>
+
+   <tbody>
+     <% obj.each do |course| %>
+     <tr>
+       <td><%= course.name %></td>
+       <td>〒<%= course.postcode %><br>
+       　<%= course.prefecture_name %><%= course.address_city %><%= course.address_street %>
+       </td>
+        <td><div id="star-rate-<%= course.id %>"></div><%= course.avg_score %>/5.0</td>
+       <td>
+         <%= link_to "コース詳細", course_path(course.id) %>
+       </td>
+     </tr>
+   <script>
+    $('#star-rate-<%= course.id %>').html('');
+    $('#star-rate-<%= course.id %>').raty({
+     size: 36,
+     starOff:  '<%= asset_path('star-off.png') %>',
+     starOn : '<%= asset_path('star-on.png') %>',
+     starHalf: '<%= asset_path('star-half.png') %>',
+     half: true,
+     readOnly: true,
+     score: <%= course.avg_score %>,
+    });
+   </script>
+     <% end %>
+   </tbody>
+ </table>

@@ -5,33 +5,42 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= include_gon %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-       <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-       <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-       <% end %>
-    </header>
-    
+  <body class="d-flex flex-column vh-100">
+    <%= render 'layouts/header' %>
+   
     <main>
       <%= yield %>
     </main>
-    
-    <footer>
-      
-    </footer>
-    
+  
+
+<footer class="bg-light text-center text-lg-start">
+  <div class="container p-2">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 mb-1 mb-md-0">
+        <p class="text-uppercase">Footer text</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+          molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
+          aliquam voluptatem veniam, est atque cumque eum delectus sint!
+        </p>
+      </div>
+      <div class="col-lg-8 col-md-8 mb-1 mb-md-0 text-left">
+        <p class="text-uppercase">都道府県から探す</p>
+        <%= render 'layouts/prefectures' %>
+      </div>
+    </div>
+  </div>
+  <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-dark">MDBootstrap.com</a>
+  </div>
+</footer>
+
+
   </body>
 </html>

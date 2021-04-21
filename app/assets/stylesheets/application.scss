@@ -17,3 +17,9 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+.jumbotron {
+  background:url(main.jpeg) center no-repeat;
+  background-size: cover;
+  // overflow: hidden;
+
+}

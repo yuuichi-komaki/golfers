@@ -8,7 +8,7 @@
 </style>
 
 <!--地図の表示-->
-<script type="text/javascript">
+<script>
     function initMap() {
 
         geocoder = new google.maps.Geocoder()
@@ -40,6 +40,4 @@
             infowindow.open(map, marker);
         });
     }
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>

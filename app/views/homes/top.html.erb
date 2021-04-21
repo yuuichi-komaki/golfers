@@ -1,4 +1,38 @@
-<h1>golfers</h1>
 
-<%= link_to '千葉県', prefecture_courses_path(key: "12") %>
-<%= link_to '埼玉県', prefecture_courses_path(key: "11") %>
+　<div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 mx-auto">
+            <h1 class="">見出しテキストテキスト</h1>
+          サブテキストサブテキストサブテキストサブテキストサブテキストサブテキスト
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
+          </div>
+        </div>
+      </div>
+
+  </div>
+<div class="container">
+ <div class="row">
+   <% @posts.each do |post| %>
+  <div class="col-md-4">
+     <div class="card mt-2 shadow-sm">
+      <div class="card-img-top" >
+        <% if post.post_images.present? %>
+         <% post.post_images.first(1).each do |image| %>
+          <%= attachment_image_tag(image, :image, width: '100%', height: '70%') %>
+         <% end %>
+        <% else %>
+         <%= image_tag 'post_no_image.png', width: '100%', height: '70%'%>
+        <% end %>
+      </div>
+      <div class="card-body">
+    　　<h5 class="card-title">Card title</h5>
+    　　<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    　　<a href="#" class="btn btn-primary">Go somewhere</a>
+  　　</div>
+     </div>
+  </div>
+  <% end %>
+  <%= paginate @posts %>
+ </div>
+</div>

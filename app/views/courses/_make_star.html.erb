@@ -1,11 +1,12 @@
 <!--星での評価投稿-->
  <script>
+  $('#star').html('');
   $('#star').raty({
     size     : 15,
     starOff:  '<%= asset_path('star-off.png') %>',
     starOn : '<%= asset_path('star-on.png') %>',
     starHalf: '<%= asset_path('star-half.png') %>',
-    scoreName: 'post[score]',
+    scoreName: 'post[rate]',
     half: true,
     });
-  </script>
+</script>

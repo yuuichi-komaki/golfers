@@ -1,6 +1,7 @@
 
-
-<table class="table">
+<% if @prefecture.present? %>
+ <h2><%= @prefecture.prefecture_name %>のコース一覧</h2>
+   <table class="table">
    <thead>
      <tr>
        <th>コース名</th>
@@ -8,19 +9,24 @@
        <th></th>
      </tr>
    </thead>
-
    <tbody>
-
-<% @courses.each do |course| %>
+    <% @courses.each do |course| %>
      <tr>
        <td><%= course.name %></td>
        <td>〒<%= course.postcode %><br>
        　<%= course.prefecture_name %><%= course.address_city %><%= course.address_street %>
        </td>
        <td>
-         <%= link_to "コース詳細", course_path(course.id) %>
+         レビューの投稿数：<%= course.posts.count %>件
+       </td>
+       <td>
+         <%= link_to "コース詳細/レビュー投稿", course_path(course.id), class: 'btn btn-primary btn-sm' %>
        </td>
      </tr>
      <% end %>
    </tbody>
  </table>
+
+ <% else %>
+ まだコースが登録されていません
+<% end %>

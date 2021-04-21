@@ -16,20 +16,20 @@ class CoursesController < ApplicationController
 
   def prefecture_courses
     @courses = Course.where(prefecture_code: params[:key])
+    @prefecture = Course.find_by(prefecture_code: params[:key])
   end
 
   def show
     @course = Course.find(params[:id])
-    gon.course = @course 
+    gon.course = @course
     # 暫定で以下
     @posts = @course.posts.page(params[:page]).reverse_order
     # @posts = Post.where(course_id: :@course).order(created_at: :desc).page(params[:page])
-    @post_new = Post.new
+    @post = Post.new
   end
 
   def destroy
   end
-
 
   private
 

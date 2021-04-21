@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).reverse_order
+    @posts = @user.posts.page(params[:page]).reverse_order.per(5)
   end 
 
   def index
@@ -20,6 +20,9 @@ class UsersController < ApplicationController
   end 
   
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to '/'
   end 
 
  private

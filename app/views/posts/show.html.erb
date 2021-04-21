@@ -15,7 +15,7 @@
   </tr>
   <tr>
     <th>評価（オススメ度）</th>
-    <td><%= @post.score %>/5.0<div id="star-rate-<%= @post.id %>"></div></td>
+    <td><%= @post.rate %>/5.0<div id="star-rate-<%= @post.id %>"></div></td>
   </tr>
   <tr>
     <th>投稿画像</th>
@@ -33,7 +33,9 @@
     <td><%= @post.body %></td>
   </tr>
 </table>
-
+<% if @post.user_id == current_user.id %>
+ <%= link_to '削除', "/posts/#{@post.id}", method: :delete %>
+<% end %>
 <!--星での表示-->
   <%= render 'layouts/star', post: @post %>
 
@@ -42,6 +44,7 @@
 </div>
 
 <h5>コメント一覧(<%= @comments.count %>)</h5>
+<div class="post_comments"></div>
 <table class="table">
   <thead>
    <tr>

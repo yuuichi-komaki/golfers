@@ -15,7 +15,10 @@
  </tr>
 </table>
 
+<!--地図の呼び出し-->
 <%= render 'map' %>
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+</script>
 
 <h2>レビュー一覧</h2>
  <table class="table">
@@ -33,8 +36,9 @@
      <tr>
        <td><%= post.created_at.strftime("%Y/%m/%d") %></td>
        <td><%= post.user.name %></td>
-       <td><%= post.title %></td>
-       <td><%= post.score %>/5.0<div id="star-rate-<%= post.id %>"></div></td>
+       <td><%= link_to post.title, post_path(post) %>
+       </td>
+       <td><%= post.rate %>/5.0<div data-turbolinks="false" id="star-rate-<%= post.id %>"></div></td>
        <td><%= post.body %></td>
      </tr>
    </tbody>
@@ -45,7 +49,7 @@
 
 
 <h3>このコースのレビューを投稿する</h3>
- <%= form_with model: @post_new, local:true do |f| %>
+ <%= form_with model: @post, remote:true do |f| %>
 <table class="table">
   <tr>
     <th>画像</th>
@@ -65,13 +69,12 @@
   </tr>
   <%= f.hidden_field :course_id, value: @course.id %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :score, id: :review_star %>
-   <%= f.submit '投稿' %>
+  <%= f.submit '投稿' %>
 </table>
-  <% end %>
-
- <!--星の呼び出し-->
   <%= render 'make_star' %>
+ <% end %>
+
+
 
 
 
