@@ -21,18 +21,7 @@
          <%= link_to "コース詳細", course_path(course.id) %>
        </td>
      </tr>
-   <script>
-    $('#star-rate-<%= course.id %>').html('');
-    $('#star-rate-<%= course.id %>').raty({
-     size: 36,
-     starOff:  '<%= asset_path('star-off.png') %>',
-     starOn : '<%= asset_path('star-on.png') %>',
-     starHalf: '<%= asset_path('star-half.png') %>',
-     half: true,
-     readOnly: true,
-     score: <%= course.avg_score %>,
-    });
-   </script>
+   <%= render 'avg-star', course: course %>
      <% end %>
    </tbody>
  </table>

@@ -10,10 +10,16 @@
   <td><%= @course.address %></td>
  </tr>
  <tr>
+  <td>レビュー</td>
+  <td><%= @course.avg_score %>/5.0（投稿数<%= @course.posts.count %>件）<div id="star-rate-<%= @course.id %>"></div></td>
+ </tr>
+ <tr>
   <td>地図</td>
   <td><div id="map"></div></td>
  </tr>
 </table>
+
+<%= render 'avg-star', course: @course %>
 
 <!--地図の呼び出し-->
 <%= render 'map' %>
@@ -46,7 +52,7 @@
    <%= render 'layouts/star', post: post %>
     <% end %>
  </table>
-
+<%= paginate @posts, theme: 'twitter-bootstrap-4' %>
 
 <h3>このコースのレビューを投稿する</h3>
  <%= form_with model: @post, remote:true do |f| %>
@@ -71,7 +77,7 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit '投稿' %>
 </table>
-  <%= render 'make_star' %>
+  <%= render 'make_star', post: @post %>
  <% end %>
 
 

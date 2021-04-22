@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.all
+    @courses = Course.all.includes(:posts)
   end
 
   def prefecture_courses
@@ -23,7 +23,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     gon.course = @course
     # 暫定で以下
-    @posts = @course.posts.page(params[:page]).reverse_order
+    @posts = @course.posts.includes(:user).page(params[:page]).reverse_order.per(7)
     # @posts = Post.where(course_id: :@course).order(created_at: :desc).page(params[:page])
     @post = Post.new
   end

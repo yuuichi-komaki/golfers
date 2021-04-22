@@ -1,18 +1,18 @@
-  <heder class="shadow-sm">
+  <heder class="shadow-sm sticky-top">
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
        <div class="container">
-        <a class="navbar-brand p-1" href="/">golfers</a>
+        <a class="navbar-brand p-1" href="/"><%= image_tag 'golfers_top.png', size: "170x50" %></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
          </button>
            <div class="collapse navbar-collapse" id="navbarNavDropdown">
              <ul class="navbar-nav ml-auto">
-              
+
               <% if user_signed_in? %>
 
                 <li class="nav-item">
                  <%= link_to user_path(current_user), class: 'nav-link text-light' do %>
-                  <i class="fas fa-home"></i>マイページ
+                  <i class="fas fa-user-edit"></i>マイページ
                  <% end %>
                 </li>
                 <li class="nav-item">
@@ -33,9 +33,9 @@
                 <li>
                  <%= render 'search/search_form' %>
 　　　　　　　　</li>
-              
+
               <% else %>
-              
+
                 <li class="nav-item">
                  <%= link_to root_path, class: 'nav-link text-light' do %>
                   <i class="fas fa-home"></i>Home

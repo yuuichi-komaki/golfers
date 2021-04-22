@@ -1,0 +1,27 @@
+
+<h2>投稿編集</h2>
+ <%= form_with model: @post, remote:true do |f| %>
+<table class="table">
+  <tr>
+    <th>画像</th>
+    <td><%= f.attachment_field :post_images_images, multiple: true %></td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td><%= f.text_field :title %></td>
+  </tr>
+  <tr>
+    <th>評価(オススメ度)</th>
+    <td class="form-group row" id="star"></td>
+  </tr>
+  <tr>
+    <th>クチコミ</th>
+    <td><%= f.text_area :body %></td>
+  </tr>
+  <%= f.hidden_field :course_id, value: @course.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit '投稿' %>
+</table>
+  <%= render 'courses/make_star',  post: @post %>
+ <% end %>
+
