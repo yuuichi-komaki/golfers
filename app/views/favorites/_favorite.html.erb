@@ -1,16 +1,16 @@
 
 <% if post.favorited_by?(current_user) %>
- <table>
+ <table class="table table-borderless table-sm">
    <tr>
      <td>お気に入り済み！</td>
-     <td><%= link_to "[お気に入りを解除する]", post_favorites_path(post.id), method: :delete, remote: true %></td>
+     <td><%= link_to "[お気に入りを解除する]", post_favorites_path(post.id), method: :delete, remote: true, class: "btn btn-outline-danger" %></td>
    </tr>
  </table>
 <% else %>
-<table>
+<table class="table table-borderless table-sm">
   <tr>
     <td>お気に入りにしませんか？</td>
-    <td><%= link_to "[お気に入り登録する]", post_favorites_path(post.id), method: :post, remote: true %></td>
+    <td><%= link_to "[お気に入り登録する]", post_favorites_path(post.id), method: :post, remote: true, class: "btn btn-outline-warning" %></td>
   </tr>
 </table>
 <% end %>

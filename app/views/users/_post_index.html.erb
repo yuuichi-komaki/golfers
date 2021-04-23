@@ -1,0 +1,27 @@
+    <% if obj.empty? %>
+       まだ投稿がありません
+    <% else %>
+     　<table class="table">
+        <thead>
+          <tr class="table-success">
+            <th>投稿日</th>
+            <th>タイトル</th>
+            <th>評価</th>
+            <th>レビュー内容</th>
+          </tr>
+        </thead>
+        <% obj.each do |post| %>
+        <tbody>
+          <tr>
+            <td><%= post.created_at.strftime("%Y/%m/%d") %></td>
+            <td><%= link_to post.title, post_path(post) %>
+            </td>
+            <td><%= post.rate %>/5.0<div data-turbolinks="false" id="star-rate-<%= post.id %>"></div></td>
+            <td><%= post.body %></td>
+          </tr>
+        </tbody>
+       <!--星での表示-->
+        <%= render 'layouts/star', post: post %>
+        <% end %>
+      </table>
+    <% end %>

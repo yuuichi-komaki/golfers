@@ -1,0 +1,26 @@
+
+<footer class="bg-light text-center text-lg-start mt-5">
+  <div class="container p-2">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 mb-1 mb-md-0 text-left">
+        <h5 class="text-uppercase">About</h5>
+        <p>
+          ゴルフ場のレビューサイトです！<br>
+          コースを検索してみましょう。プレーした後はレビューの
+          投稿をお願いします。<br>
+          コースの検索は、都道府県ごとやコース名から検索できます！
+        </p>
+      </div>
+      <div class="col-lg-8 col-md-8 mb-1 mb-md-0 text-left">
+        <p class="text-uppercase">都道府県から探す
+         <span><%= link_to 'コース一覧（全国）',courses_path %></span>
+        </p>
+        <%= render 'layouts/prefectures' %>
+      </div>
+    </div>
+  </div>
+  <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-dark">MDBootstrap.com</a>
+  </div>
+</footer>

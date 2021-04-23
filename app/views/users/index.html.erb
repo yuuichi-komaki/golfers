@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10">
-      <table class="table">
+    <div class="col-md-10 my-4">
+     <h2>会員一覧</h2>
+      <table class="table mt-2">
         <thead>
           <tr>
             <th></th>
@@ -13,10 +14,10 @@
         <% @users.each do |user| %>
         <tbody>
           <tr>
-            <td><%= attachment_image_tag(user, :profile_image, :fill, 80, 80, fallback: "profile_no_image.png", size: '80x80') %></td>
+            <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "profile_no_image.png", size: '50x50') %></td>
             <td><%= user.name %></td>
             <td><%= user.posts.count %></td>
-            <td><td><%= link_to '詳細を見る', user_path(user), class: "user_#{user.id}" %></td></td>
+            <td><td><%= link_to '詳細を見る', user_path(user), class: "btn btn-primary" %></td></td>
           </tr>
         </tbody>
         <% end %>

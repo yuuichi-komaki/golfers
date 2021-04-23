@@ -13,12 +13,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.includes(:user, :course)
+    @posts = Post.all.includes(:user, :course).order(created_at: :desc).page(params[:page]).per(15)
   end
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments
+    @comments = @post.comments.includes(:user)
     @comment = current_user.comments.new
   end
 

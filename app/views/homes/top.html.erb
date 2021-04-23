@@ -14,7 +14,7 @@
   <h2>新着投稿</h2>
  <div class="row">
    <% @posts.each do |post| %>
-  <div class="col-md-4">
+  <div class="col-4">
      <div class="card mt-2 shadow-sm">
       <div class="card-img-top" >
         <% if post.post_images.present? %>
@@ -27,10 +27,10 @@
       </div>
       <div class="card-body">
        <div class="row">
-        <div class="col-md-3">
+        <div class="col-3">
          <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "profile_no_image.png", size: "60x60", class:"rounded-circle"; %>
         </div>
-        <div class="col-md-9">
+        <div class="col-9">
           <div class="card-title text-left">
            <h5 class="card-header"><%= post.title %></h5>
           </div>
