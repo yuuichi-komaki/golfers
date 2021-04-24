@@ -39,7 +39,7 @@
    </div>
    <div class="col-md-7">
     <h3>レビューを投稿する</h3>
-     <%= form_with model: @post, local:true do |f| %>
+     <%= form_with model: @post, remote:true do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
       <table class="table form-group">
         <tr>
@@ -71,7 +71,7 @@
         <%= render 'courses/make_star', post: @post %>
    </div>
  </div>
- 
+
  <div class="row">
   <div class="col-md-12 my-3">
    <h2>レビュー一覧</h2>
