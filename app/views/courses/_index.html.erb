@@ -18,7 +18,7 @@
        </td>
         <td><%= course.avg_score %>/5.0(<%= course.posts.count %>件)<div id="star-rate-<%= course.id %>"></div></td>
        <td>
-         <%= link_to "コース詳細/レビュー投稿", course_path(course.id), data: {"turbolinks" => false}, class: "btn btn-primary btn-sm" %>
+         <%= link_to "コース詳細/レビュー投稿", course_path(course), data: {"turbolinks" => false}, class: "btn btn-primary btn-sm" %>
        </td>
      </tr>
    <%= render 'avg-star', course: course %>

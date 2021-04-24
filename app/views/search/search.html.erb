@@ -20,7 +20,7 @@
              　<%= course.prefecture_name %><%= course.address_city %><%= course.address_street %>
              </td>
              <td>
-               <%= link_to "コース詳細/レビュー投稿", course_path(course.id), data: {"turbolinks" => false}, class: "btn btn-primary btn-sm" %>
+               <%= link_to "コース詳細/レビュー投稿", course_path(course), data: {"turbolinks" => false}, class: "btn btn-primary btn-sm" %>
              </td>
            </tr>
            <% end %>
