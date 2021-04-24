@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row">
   <div class="col-md-6 mx-auto">
-   <h1 class="my-4">コース登録</h1>
+   <h1 class="my-4">コース編集</h1>
     <%= form_with model: @course, local:true do |f| %>
     　<%= render 'layouts/error_messages', model: f.object %>
      <table class="table form-group">
@@ -27,13 +27,13 @@
        </tr>
        <tr>
          <td></td>
-         <td><%= f.submit "コースを登録する", class: "btn btn-outline-success" %></td>
+         <td>
+           <%= f.submit "コースを編集する", class: "btn btn-outline-success" %>
+           <%= link_to '削除する', course_path(@course), method: :delete, data: {confirm: "本当に削除しますか?"}, class: "btn btn-outline-danger ml-3" %>
+         </td>
        </tr>
      </table>
     <% end %>
   </div>
  </div>
 </div>
-
-
-

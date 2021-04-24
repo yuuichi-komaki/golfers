@@ -1,6 +1,20 @@
-<h1>コース一覧</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 my-4">
+      <h2 class="my-3">コース一覧</h2>
 
- <%= render 'index', obj: @courses %>
+      <%= render 'index', obj: @courses %>
+      <%= paginate @courses, theme: 'twitter-bootstrap-4' %>
+      <div class="text-center mt-4">
+       <p class="my-2">
+         お探しのコースが見つからない場合は、お手数ですが<br>
+         <%= link_to "こちら", new_course_path, data: {"turbolinks" => false} %>からコース登録をお願いします
+       </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 

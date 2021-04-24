@@ -17,8 +17,7 @@
 
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 
 //= require jquery.raty.js
+//= require turbolinks
 //= require_tree .
-

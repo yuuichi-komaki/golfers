@@ -1,10 +1,10 @@
 
 <table class="table">
-   <thead>
+   <thead class="table-success">
      <tr>
        <th>コース名</th>
        <th>コース住所</th>
-       <th>レビュー</th>
+       <th>レビュー(平均)</th>
        <th></th>
      </tr>
    </thead>
@@ -16,9 +16,9 @@
        <td>〒<%= course.postcode %><br>
        　<%= course.prefecture_name %><%= course.address_city %><%= course.address_street %>
        </td>
-        <td><div id="star-rate-<%= course.id %>"></div><%= course.avg_score %>/5.0</td>
+        <td><%= course.avg_score %>/5.0(<%= course.posts.count %>件)<div id="star-rate-<%= course.id %>"></div></td>
        <td>
-         <%= link_to "コース詳細", course_path(course.id) %>
+         <%= link_to "コース詳細/レビュー投稿", course_path(course.id), data: {"turbolinks" => false}, class: "btn btn-primary btn-sm" %>
        </td>
      </tr>
    <%= render 'avg-star', course: course %>

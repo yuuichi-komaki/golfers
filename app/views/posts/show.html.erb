@@ -54,11 +54,15 @@
       </div>
    </div>
    <div class="col-md-6">
+
     <div class="comments">
      <%= render 'comments/index', comments: @comments %>
     </div>
     <div class="form-group">
       <%= form_with(model:[@post, @comment], method: :post) do |f| %>
+      <div id="comments_error">
+       <%= render 'layouts/error_messages', model: f.object %>
+      </div>
        <%= f.text_area :content, class: "form-control" %>
        <%= f.hidden_field :post_id, value: @post.id %>
     </div>

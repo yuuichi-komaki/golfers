@@ -1,32 +1,22 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-10 my-3">
+   <% if @prefecture.present? %>
+    <h2 class="mt-3"><%= @prefecture.prefecture_name %>のコース一覧</h2>
+    <%= render 'index', obj: @courses %>
+    <%= paginate @courses, theme: 'twitter-bootstrap-4' %>
+   <% else %>
+    <div class="text-center my-5">
+     まだコースが登録されていません
+    </div>
+   <% end %>
 
-<% if @prefecture.present? %>
- <h2><%= @prefecture.prefecture_name %>のコース一覧</h2>
-   <table class="table">
-   <thead>
-     <tr>
-       <th>コース名</th>
-       <th>コース住所</th>
-       <th></th>
-     </tr>
-   </thead>
-   <tbody>
-    <% @courses.each do |course| %>
-     <tr>
-       <td><%= course.name %></td>
-       <td>〒<%= course.postcode %><br>
-       　<%= course.prefecture_name %><%= course.address_city %><%= course.address_street %>
-       </td>
-       <td>
-         レビューの投稿数：<%= course.posts.count %>件
-       </td>
-       <td>
-         <%= link_to "コース詳細/レビュー投稿", course_path(course.id), class: 'btn btn-primary btn-sm' %>
-       </td>
-     </tr>
-     <% end %>
-   </tbody>
- </table>
-
- <% else %>
- まだコースが登録されていません
-<% end %>
+   <div class="text-center mt-4">
+    <p class="my-2">
+     お探しのコースが見つからない場合は、お手数ですが<br>
+     <%= link_to "こちら", new_course_path, data: {"turbolinks" => false} %>からコース登録をお願いします
+    </p>
+   </div>
+  </div>
+ </div>
+</div>
