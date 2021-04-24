@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_24_110410) do
+ActiveRecord::Schema.define(version: 2021_04_24_154927) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_04_24_110410) do
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
-    t.integer "postcode"
+    t.string "postcode"
     t.integer "prefecture_code"
     t.string "address_city"
     t.string "address_street"
