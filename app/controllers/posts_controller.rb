@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.includes(:user)
+    @comments = @post.comments.includes([:user])
     @comment = current_user.comments.new
   end
 
@@ -32,12 +32,12 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-     flash[:success] = "編集しました"
-     redirect_to post_path(@post)
+      flash[:success] = "編集しました"
+      redirect_to post_path(@post)
     else
-     @post = Post.find(params[:id])
-     @course = @post.course
-     render 'edit'
+      @post = Post.find(params[:id])
+      @course = @post.course
+      render 'edit'
     end
   end
 
@@ -47,7 +47,6 @@ class PostsController < ApplicationController
     flash[:warning] = "削除しました"
     redirect_to '/'
   end
-
 
   private
 

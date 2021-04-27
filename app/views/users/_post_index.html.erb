@@ -14,7 +14,7 @@
         <tbody>
           <tr>
             <td><%= post.created_at.strftime("%Y/%m/%d") %></td>
-            <td><%= link_to post.title, post_path(post) %>
+            <td><%= link_to post.title, post_path(post), data: {"turbolinks" => false} %>
             </td>
             <td><%= post.rate %>/5.0<div data-turbolinks="false" id="star-rate-<%= post.id %>"></div></td>
             <td><%= post.body %></td>

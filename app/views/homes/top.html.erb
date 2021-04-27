@@ -48,7 +48,7 @@
          <p class="card-text">
           <%= post.body %>
          </p>
-          <%= link_to "詳細へ行く", post_path(post), class: "btn btn-info" %>
+          <%= link_to "詳細へ行く", post_path(post), data: {"turbolinks" => false}, class: "btn btn-info" %>
         </div>
     　 </div>
   　　</div>

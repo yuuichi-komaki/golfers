@@ -1,5 +1,4 @@
 class CoursesController < ApplicationController
-
   before_action :user_admin, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :prefecture_courses]
 
@@ -10,9 +9,9 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
-     redirect_to course_path(@course)
+      redirect_to course_path(@course)
     else
-     render 'new'
+      render 'new'
     end
   end
 

@@ -27,7 +27,7 @@
             <% end %>
            </td>
            <td>
-            <%= link_to post_path(post) do %>
+            <%= link_to post_path(post), data: {"turbolinks" => false} do %>
              <%= post.title %>
             <% end %>
             </td>

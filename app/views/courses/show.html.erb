@@ -48,7 +48,7 @@
         </tr>
         <tr>
           <th class="table-success">タイトル</th>
-          <td><%= f.text_field :title, class: "form-control" %></td>
+          <td><%= f.text_field :title, placeholder: "入力必須", class: "form-control" %></td>
         </tr>
         <tr>
           <th class="table-success">評価(オススメ度)</th>
@@ -56,7 +56,7 @@
         </tr>
         <tr>
           <th class="table-success">クチコミ</th>
-          <td><%= f.text_area :body, size: "20x5", class: "form-control" %></td>
+          <td><%= f.text_area :body, placeholder: "感想やコース場のレビューを投稿してみましょう", size: "20x5", class: "form-control" %></td>
         </tr>
         <%= f.hidden_field :course_id, value: @course.id %>
         <%= f.hidden_field :user_id, value: current_user.id %>
@@ -71,7 +71,7 @@
         <%= render 'courses/make_star', post: @post %>
    </div>
  </div>
- 
+
  <div class="row">
   <div class="col-md-12 my-3">
    <h2>レビュー一覧</h2>

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.includes(:posts)
+    @users = User.all.page(params[:page]).per(15)
   end
 
   def edit
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
- private
+  private
 
   def ensure_correct_user
     @user = User.find(params[:id])
@@ -38,10 +38,7 @@ class UsersController < ApplicationController
     end
   end
 
-
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
-
-
 end
