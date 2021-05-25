@@ -39,9 +39,9 @@
           <div class="card-title text-left">
            <h5 class="card-header"><%= post.title %></h5>
           </div>
-    　　</div>
-    　 </div>
-    　 <div class="row">
+      </div>
+      </div>
+      <div class="row">
         <div class="col-md-11">
          <h6>コース名：<%= post.course.name %></h6>
           <div id="star-rate-<%= post.id %>"></div>
@@ -50,8 +50,8 @@
          </p>
           <%= link_to "詳細へ行く", post_path(post), data: {"turbolinks" => false}, class: "btn btn-info" %>
         </div>
-    　 </div>
-  　　</div>
+      </div>
+     </div>
      </div>
   </div>
    <%= render 'layouts/star', post: post %>

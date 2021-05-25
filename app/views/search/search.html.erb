@@ -16,7 +16,7 @@
            <tr>
              <td><%= course.name %></td>
              <td>〒<%= course.postcode %><br>
-             　<%= course.prefecture_name %><%= course.address_city %><%= course.address_street %>
+              <%= course.prefecture_name %><%= course.address_city %><%= course.address_street %>
              </td>
              <td>
                <%= link_to "コース詳細/レビュー投稿", course_path(course), data: {"turbolinks" => false}, class: "btn btn-primary btn-sm" %>
@@ -24,7 +24,7 @@
            </tr>
            <% end %>
          </tbody>
-   　　　</table>
+         </table>
       <% else %>
        <div class="text-center my-5">
          お探しの検索ワードでは何もありません
