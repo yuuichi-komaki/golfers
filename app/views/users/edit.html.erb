@@ -4,6 +4,7 @@
       <h2 class="my-4">プロフィール編集</h2>
        <%= form_with model:@user, local:true do |f| %>
         <table class="table form-group mt-2">
+          <%= render 'layouts/error_messages', model: f.object %>
           <tr>
             <th>名前</th>
             <td>

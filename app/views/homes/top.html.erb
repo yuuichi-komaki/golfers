@@ -3,7 +3,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10 offset-md-1 mx-auto ">
-            <h1 class="text-light"> GOLFERS</h1>
+            <h1 class="text-light">GOLFERS</h1>
              <p class="text-light bg-dark"> ゴルフ場のレビューサイトです！まずは会員登録をしてレビューを投稿してみましょう！！
               <% if user_signed_in? %>
                <%= link_to "コース一覧へ", courses_path, class: "btn btn-outline-light btn-lg ml-5" %>
@@ -42,7 +42,7 @@
       </div>
       </div>
       <div class="row">
-        <div class="col-md-11">
+        <div class="col-md-11 offset-md-1">
          <h6>コース名：<%= post.course.name %></h6>
           <div id="star-rate-<%= post.id %>"></div>
          <p class="card-text">
